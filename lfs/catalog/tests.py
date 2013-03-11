@@ -9,7 +9,7 @@ from django.contrib.sessions.backends.file import SessionStore
 from django.contrib.auth.models import AnonymousUser
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
 
 # lfs imports
@@ -53,6 +53,8 @@ from lfs.core.signals import product_changed
 from lfs.core.signals import product_removed_property_group
 from lfs.tax.models import Tax
 from lfs.tests.utils import RequestFactory
+
+User = get_user_model()
 
 
 class PriceFilterTestCase(TestCase):
