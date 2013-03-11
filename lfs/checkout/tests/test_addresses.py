@@ -1,5 +1,5 @@
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.backends.file import SessionStore
 from django.shortcuts import get_object_or_404
@@ -23,6 +23,8 @@ from lfs.payment.models import PaymentMethod
 from lfs.payment.settings import BY_INVOICE, DIRECT_DEBIT
 from lfs.shipping.models import ShippingMethod
 from lfs.tax.models import Tax
+
+User = get_user_model()
 
 
 class CheckoutAddressesTestCase(TestCase):

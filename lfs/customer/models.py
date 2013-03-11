@@ -1,5 +1,5 @@
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.db import models
@@ -10,6 +10,8 @@ from django.utils.translation import ugettext_lazy as _
 from lfs.core.models import Country
 from lfs.shipping.models import ShippingMethod
 from lfs.payment.models import PaymentMethod
+
+User = get_user_model
 
 
 class Customer(models.Model):

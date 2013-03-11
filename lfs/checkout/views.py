@@ -4,7 +4,7 @@ from copy import deepcopy
 # django imports
 from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -35,6 +35,8 @@ from lfs.customer.forms import RegisterForm
 from lfs.payment.models import PaymentMethod
 from lfs.voucher.models import Voucher
 from lfs.voucher.settings import MESSAGES
+
+User = get_user_model()
 
 
 def login(request, template_name="lfs/checkout/login.html"):

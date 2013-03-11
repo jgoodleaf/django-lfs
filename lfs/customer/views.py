@@ -6,7 +6,7 @@ from urlparse import urlparse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
@@ -21,6 +21,8 @@ from lfs.customer import utils as customer_utils
 from lfs.customer.forms import EmailForm
 from lfs.customer.forms import RegisterForm
 from lfs.order.models import Order
+
+User = get_user_model()
 
 
 def login(request, template_name="lfs/customer/login.html"):

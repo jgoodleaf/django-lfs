@@ -1,7 +1,7 @@
 # django imports
 from django.test import TestCase
 from django.test.client import Client
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 
 # test imports
@@ -22,6 +22,8 @@ from lfs.cart import utils as cart_utils
 from lfs.cart.models import CartItem
 from lfs.caching.listeners import update_cart_cache
 from lfs.tests.utils import create_request
+
+User = get_user_model()
 
 
 class ShippingMethodTestCase(TestCase):

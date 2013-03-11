@@ -2,7 +2,7 @@
 import datetime
 
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.sessions.backends.file import SessionStore
 from django.test import TestCase
 
@@ -18,6 +18,8 @@ from lfs.voucher.models import VoucherGroup
 from lfs.voucher.models import VoucherOptions
 from lfs.voucher.settings import ABSOLUTE
 from lfs.voucher.settings import PERCENTAGE
+
+User = get_user_model()
 
 
 class VoucherUtilsTestCase(TestCase):

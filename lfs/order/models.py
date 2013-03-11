@@ -3,7 +3,7 @@ import uuid
 
 # django imports
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.utils.translation import ugettext_lazy as _
@@ -21,6 +21,8 @@ from lfs.order.settings import SUBMITTED
 from lfs.shipping.models import ShippingMethod
 from lfs.payment.models import PaymentMethod
 from lfs.payment.settings import PAYPAL
+
+User = get_user_model()
 
 
 def get_unique_id_str():

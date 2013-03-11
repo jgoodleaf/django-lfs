@@ -1,5 +1,5 @@
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.backends.file import SessionStore
 from django.core.urlresolvers import reverse
@@ -29,6 +29,9 @@ from lfs.payment.models import PaymentMethod
 from lfs.shipping.models import ShippingMethod
 from lfs.tax.models import Tax
 from lfs.tests.utils import RequestFactory
+
+User = get_user_model
+
 
 class DiscountsTestCase1(TestCase):
     """Unit tests for lfs.discounts

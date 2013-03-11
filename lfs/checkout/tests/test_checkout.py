@@ -1,5 +1,5 @@
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.backends.file import SessionStore
 from django.shortcuts import get_object_or_404
@@ -28,6 +28,8 @@ from lfs.tax.models import Tax
 
 # 3rd party imports
 from postal.library import form_factory
+
+User = get_user_model()
 
 class CheckoutTestCase(TestCase):
     """

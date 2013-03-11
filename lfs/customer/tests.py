@@ -1,6 +1,6 @@
 # django imports
 from django.test import TestCase
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.core import mail
 
@@ -13,6 +13,8 @@ from lfs.customer.models import Customer
 from lfs.shipping.models import ShippingMethod
 from lfs.tax.models import Tax
 from lfs.payment.models import PaymentMethod
+
+User = get_user_model()
 
 
 class CreditCardTestCase(TestCase):

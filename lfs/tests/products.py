@@ -1,6 +1,6 @@
 # django imports
 from django.test import TestCase
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 # test imports
 from lfs.tests.utils import DummyRequest
@@ -8,6 +8,8 @@ from lfs.tests.utils import DummyRequest
 # lfs imports
 from lfs.catalog.models import Product
 from lfs.catalog.models import Category
+
+User = get_user_model()
 
 
 class ProductsTestCase(TestCase):

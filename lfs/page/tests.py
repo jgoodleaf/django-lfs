@@ -1,5 +1,5 @@
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
 from django.test import TestCase
@@ -10,6 +10,8 @@ from lfs.tests.utils import DummyRequest
 
 # lfs imports
 from lfs.page.models import Page
+
+User = get_user_model()
 
 
 class PageTestCase(TestCase):
