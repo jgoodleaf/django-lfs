@@ -5,7 +5,7 @@ import re
 # django imports
 from django.conf import settings
 from django.core.cache import cache
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -18,6 +18,8 @@ from lfs.catalog.models import PropertyOption
 # Load logger
 import logging
 logger = logging.getLogger("default")
+
+User = get_user_model()
 
 
 class Cart(models.Model):
