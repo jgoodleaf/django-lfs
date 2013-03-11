@@ -4,7 +4,7 @@
 import locale
 
 # django imports
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.backends.file import SessionStore
 from django.http import Http404
@@ -31,6 +31,8 @@ from lfs.catalog.settings import DELIVERY_TIME_UNIT_DAYS
 from lfs.catalog.settings import PROPERTY_TEXT_FIELD
 from lfs.tests.utils import RequestFactory
 from lfs.tax.models import Tax
+
+User = get_user_model()
 
 
 class LoginTestCase(TestCase):
