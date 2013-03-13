@@ -9,7 +9,7 @@
     <div class="navigation-body">
         {% for property_group in property_groups %}
             <div>
-                <a href="{% url lfs_manage_property_group property_group.id %}"
+                <a href="{% url 'lfs_manage_property_group' property_group.id %}"
                    class="selectable {% ifequal property_group.id current_id %}selected{% endifequal %}">
                     {{ property_group.name }}
                 </a>
@@ -21,10 +21,10 @@
 {% block content %}
     <div class="site-actions">
         <a class="add"
-           href="{% url lfs_manage_add_property_group %}?came_from={% url lfs_manage_property_group property_group.id %}">{% trans 'Add Property Group' %}</a>
+           href="{% url 'lfs_manage_add_property_group' %}?came_from={% url 'lfs_manage_property_group' property_group.id %}">{% trans 'Add Property Group' %}</a>
         <a class="delete delete-link"
            dialog_message="{% trans 'Do you really want to delete this property group?' %}"
-           href="{% url lfs_delete_property_group property_group.id %}">{% trans 'Delete Property Group' %}</a>
+           href="{% url 'lfs_delete_property_group' property_group.id %}">{% trans 'Delete Property Group' %}</a>
     </div>
     <div id="manage-tabs">
         <ul>
@@ -34,7 +34,7 @@
         </ul>
         <div id="data">
             <h2>{% trans 'Data' %}</h2>
-            <form action="{% url lfs_manage_property_group property_group.id %}"
+            <form action="{% url 'lfs_manage_property_group' property_group.id %}"
                   method="post">
                 {% csrf_token %}
                 {% include "manage/lfs_form.html" %}
