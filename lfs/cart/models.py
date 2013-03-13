@@ -5,7 +5,7 @@ import re
 # django imports
 from django.conf import settings
 from django.core.cache import cache
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 

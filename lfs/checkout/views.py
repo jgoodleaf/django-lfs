@@ -4,7 +4,7 @@ from copy import deepcopy
 # django imports
 from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -65,7 +65,7 @@ def login(request, template_name="lfs/checkout/login.html"):
         login_form = AuthenticationForm(data=request.POST)
         login_form.fields["username"].label = _(u"E-Mail")
         if login_form.is_valid():
-            from django.contrib.auth import login
+            from lfs import login
             login(request, login_form.get_user())
 
             return lfs.core.utils.set_message_cookie(reverse("lfs_checkout"),
@@ -85,10 +85,10 @@ def login(request, template_name="lfs/checkout/login.html"):
             lfs.core.signals.customer_added.send(user)
 
             # Log in user
-            from django.contrib.auth import authenticate
+            from lfs import authenticate
             user = authenticate(username=email, password=password)
 
-            from django.contrib.auth import login
+            from lfs import login
             login(request, user)
 
             return lfs.core.utils.set_message_cookie(reverse("lfs_checkout"),

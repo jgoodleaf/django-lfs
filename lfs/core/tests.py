@@ -29,7 +29,7 @@ except ImportError:
     pass
 
 # django imports
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.contrib.sessions.backends.file import SessionStore
 from django.core.urlresolvers import reverse
 from django.template.loader import get_template_from_string

@@ -4,7 +4,7 @@
 import locale
 
 # django imports
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.backends.file import SessionStore
 from django.http import Http404
@@ -281,7 +281,7 @@ class AddToCartTestCase(TestCase):
         """
         """
         self.p1 = Product.objects.create(name="Product 1", slug="product-1", price=10.0)
-        from django.contrib.auth import get_user_model
+        from lfs import get_user_model
         User = get_user_model()
 
         self.dt = DeliveryTime.objects.create(min=1, max=2, unit=DELIVERY_TIME_UNIT_DAYS)
@@ -592,7 +592,7 @@ class AddedToCartTestCase(TestCase):
         """
         """
         self.p1 = Product.objects.create(name="Product 1", slug="product-1", price=10.0, active=True, manage_stock_amount=False)
-        from django.contrib.auth import get_user_model
+        from lfs import get_user_model
         User = get_user_model()
 
         self.dt = DeliveryTime.objects.create(min=1, max=2, unit=DELIVERY_TIME_UNIT_DAYS)

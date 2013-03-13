@@ -1,7 +1,7 @@
 # django imports
 from django.test import TestCase
 from django.test.client import Client
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.contrib.auth.models import AnonymousUser
 
 # test imports

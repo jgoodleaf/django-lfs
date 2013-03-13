@@ -1,5 +1,5 @@
 # django imports
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
 from django.test import TestCase

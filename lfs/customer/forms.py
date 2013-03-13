@@ -3,7 +3,7 @@ import datetime
 
 # django imports
 from django import forms
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.db.models import Q
 from django.forms.util import ErrorList
 from django.utils.translation import ugettext_lazy as _

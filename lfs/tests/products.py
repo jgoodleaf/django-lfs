@@ -1,6 +1,6 @@
 # django imports
 from django.test import TestCase
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 
 # test imports
 from lfs.tests.utils import DummyRequest

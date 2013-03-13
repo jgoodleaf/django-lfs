@@ -3,7 +3,7 @@ import uuid
 
 # django imports
 from django.db import models
-from django.contrib.auth import get_user_model
+from lfs import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.utils.translation import ugettext_lazy as _
