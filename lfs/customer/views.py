@@ -56,7 +56,7 @@ def login(request, template_name="lfs/customer/login.html"):
             if not redirect_to or '//' in redirect_to or ' ' in redirect_to:
                 redirect_to = reverse("lfs_shop_view")
 
-            from lfs import login
+            from django.contrib.auth import login
             login(request, login_form.get_user())
 
             return lfs.core.utils.set_message_cookie(
@@ -81,10 +81,10 @@ def login(request, template_name="lfs/customer/login.html"):
             lfs.core.signals.customer_added.send(user)
 
             # Log in user
-            from lfs import authenticate
+            from django.contrib.auth import authenticate
             user = authenticate(username=email, password=password)
 
-            from lfs import login
+            from django.contrib.auth import login
             login(request, user)
 
             redirect_to = request.POST.get("next")
@@ -124,7 +124,7 @@ def logout(request):
     The reason to use a custom logout method is just to provide a login and a
     logoutmethod on one place.
     """
-    from lfs import logout
+    from django.contrib.auth import logout
     logout(request)
 
     return lfs.core.utils.set_message_cookie(reverse("lfs_shop_view"),

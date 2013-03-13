@@ -1,6 +1,6 @@
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
-from lfs import SESSION_KEY, BACKEND_SESSION_KEY, REDIRECT_FIELD_NAME
+from django.contrib.auth import SESSION_KEY, BACKEND_SESSION_KEY, REDIRECT_FIELD_NAME
 from django.contrib import auth
 
 # TODO: Check whether signals can be used here.
